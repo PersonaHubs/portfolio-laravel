@@ -1,7 +1,6 @@
 services:
   - type: web
-    name: laravel-portfolio
+    name: portfolio-laravel
     env: docker
     plan: free
-    dockerfilePath: ./Dockerfile
     autoDeploy: true

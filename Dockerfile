@@ -1,36 +1,27 @@
-# Use official PHP 8.2 image with Apache
+# Use an official PHP 8.2 image with Apache
 FROM php:8.2-apache
 
-# Install required PHP extensions and system tools
-RUN apt-get update && apt-get install -y \
-    git unzip libzip-dev libpng-dev libonig-dev libxml2-dev zip curl \
-    && docker-php-ext-install pdo pdo_mysql mbstring zip exif pcntl bcmath gd
+# Install required PHP extensions
+RUN docker-php-ext-install pdo pdo_mysql
 
-# Enable Apache rewrite module (for Laravel routing)
+# Enable Apache mod_rewrite
 RUN a2enmod rewrite
 
-# Set the working directory
+# Set working directory
 WORKDIR /var/www/html
 
-# Copy composer from official composer image
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+# Copy all project files
+COPY . /var/www/html
 
-# Copy project files
-COPY . .
-
-# Install PHP dependencies
-RUN composer install --no-dev --optimize-autoloader
-
-# Set Laravel folder permissions
+# Set proper permissions for Laravel
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
-# Set environment variables
-ENV APP_ENV=production
-ENV APP_DEBUG=false
-ENV APP_URL=https://yourapp.onrender.com
+# Change Apache DocumentRoot to /public
+RUN sed -i 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/000-default.conf
 
-# Expose port 80 for Apache
+# Expose port 80
 EXPOSE 80
 
-# Start Apache server
+# Start Apache
 CMD ["apache2-foreground"]
