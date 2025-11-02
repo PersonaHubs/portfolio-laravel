@@ -16,8 +16,8 @@ COPY composer.json composer.lock ./
 # Install Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# Install PHP dependencies (no dev for production)
-RUN composer install --no-dev --optimize-autoloader
+# Skip artisan scripts during build to prevent env errors
+RUN composer install --no-dev --optimize-autoloader --no-scripts
 
 # Copy the rest of the application
 COPY . .
@@ -34,3 +34,7 @@ EXPOSE 80
 
 # Run Apache
 CMD ["apache2-foreground"]
+
+# Run artisan commands only after copy (when everything exists)
+RUN php artisan config:clear || true
+
