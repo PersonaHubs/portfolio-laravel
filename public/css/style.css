@@ -1,0 +1,418 @@
+/* ---------------- */
+/* -----LAYOUT----- */
+/* ---------------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #f9fafb;
+}
+
+
+/* ---------------- */
+/* -----HEADER----- */
+/* ---------------- */
+
+nav {
+  background: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  position: static;
+  width: 100%;
+}
+
+nav a {
+  position: relative;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  padding: 0.25rem 0;
+  transition: color 0.2s;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: #4f46e5;
+  transition: width 0.3s ease;
+}
+
+nav a:hover {
+  color: #4f46e5;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a.active {
+  color: #4f46e5;
+}
+
+nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background-color: #4f46e5;
+}
+
+
+/* ---------------------- */
+/* -----MAIN CONTENT----- */
+/* ---------------------- */
+
+main {
+  min-height: 100vh;
+}
+
+
+/* ---------------- */
+/* -----FOOTER----- */
+/* ---------------- */
+
+footer {
+  text-align: center;
+  padding: 1rem 0; 
+  background: #ffffff;
+  font-size: 1rem;    
+  color: #000000;
+}
+
+
+/* --------------- */
+/* -----ABOUT----- */
+/* --------------- */
+
+.about-section {
+  background: url('/images/twiceIRLbg.webp') no-repeat center center/cover;
+  height: 100vh;
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.about-section h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.about-section p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 1rem;
+  text-align: center;
+}
+
+
+/* ----------------- */
+/* -----PROJECTS---- */
+/* ----------------- */
+
+.projects-section {
+  background: url('/images/cyberPIXELbg.gif') no-repeat center center/cover;
+  height: 100vh;
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.projects-header {
+  background: #1f2937;
+  color: white;
+  box-shadow: none;
+}
+
+.projects-header a {
+  color: #fff;
+}
+
+.projects-header a:hover {
+  color: #a5b4fc;
+}
+
+.projects-header a.active {
+  color: #a5b4fc;
+}
+
+.projects-header a.active::after {
+  background-color: #a5b4fc;
+}
+
+
+.projects-page {
+  font-family: 'Press Start 2P', cursive;
+}
+
+.projects-section h1,
+.projects-section p {
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.projects-footer {
+  background: #1f2937;
+  color: #ddd;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+
+/* ---------------- */
+/* -----SKILLS----- */
+/* ---------------- */
+
+.skills-section {
+  background: url('/images/arcane3Dbg.png') no-repeat center center/cover;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #f8f4e9;
+  text-shadow: 0 0 12px rgba(255, 230, 180, 0.6);
+  text-align: center;
+  padding: 0 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.skills-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 10, 30, 0.4);
+  z-index: 0;
+}
+
+.skills-section h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #ffde9e;
+  z-index: 1;
+}
+
+.skills-section p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-style: italic;
+  margin-bottom: 2rem;
+  max-width: 700px;
+  color: #f1e4cc;
+  z-index: 1;
+}
+
+.skills-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  z-index: 1;
+}
+
+.skills-section li {
+  font-size: 1.3rem;
+  margin: 0.4rem 0;
+  transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.skills-section li:hover {
+  transform: scale(1.08);
+  color: #ffe8a3;
+  text-shadow: 0 0 8px rgba(255, 240, 200, 0.8);
+}
+
+.skills-header {
+  background: linear-gradient(90deg, rgba(10, 8, 25, 0.95), rgba(35, 25, 60, 0.9));
+  color: #f8f4e9;
+  box-shadow: 0 2px 10px rgba(255, 240, 200, 0.15);
+  border-bottom: 1px solid rgba(255, 240, 200, 0.15);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  letter-spacing: 0.6px;
+  text-shadow: 0 0 6px rgba(255, 240, 200, 0.5);
+}
+
+.skills-header a {
+  color: #f3e9c9;
+  text-shadow: 0 0 5px rgba(255, 230, 180, 0.6);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.skills-header a:hover {
+  color: #ffe9a3;
+  text-shadow: 0 0 10px rgba(255, 245, 200, 0.9);
+}
+
+.skills-header a.active {
+  color: #ffd57e;
+  text-shadow: 0 0 8px rgba(255, 240, 180, 0.8);
+}
+
+.skills-header a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background-color: #ffe9a3;
+}
+
+.skills-footer {
+  background: linear-gradient(90deg, rgba(10, 8, 25, 0.9), rgba(35, 25, 60, 0.85));
+  color: #f3e9c9;
+  font-family: 'Cormorant Garamond', serif;
+  text-align: center;
+  padding: 0.8rem 0;
+  border-top: 1px solid rgba(255, 240, 200, 0.1);
+  box-shadow: 0 -2px 10px rgba(255, 240, 200, 0.1);
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.skills-footer p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: #f3e9c9;
+}
+
+.skills-footer:hover p {
+  color: #ffe9a3;
+  text-shadow: 0 0 6px rgba(255, 245, 200, 0.6);
+}
+
+
+/* ----------------- */
+/* -----CONTACT----- */
+/* ----------------- */
+
+.contact-section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Dela Gothic One', cursive;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(6px) brightness(0.8);
+  z-index: 0;
+}
+
+.contact-overlay {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  text-shadow:
+    3px 3px 6px rgba(0, 0, 0, 0.8),
+    0 0 12px rgba(255, 255, 255, 0.5);
+}
+
+.contact-overlay h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  color: #ffebef;
+}
+
+.contact-overlay p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: #ffe3fa;
+}
+
+.contact-details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-details li {
+  font-size: 1.4rem;
+  margin: 0.7rem 0;
+  color: #fff6f9;
+  text-shadow:
+    2px 2px 5px rgba(0, 0, 0, 0.8),
+    0 0 8px rgba(255, 200, 220, 0.7);
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.contact-header {
+  background: linear-gradient(90deg, #ffb6c1, #add8e6, #fffacd);
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(255, 182, 193, 0.4);
+  font-family: 'Baloo 2', 'Fredoka One', cursive !important;
+  text-shadow: 1px 1px 2px #000, 0 0 8px rgba(255, 255, 255, 0.7);
+}
+
+.contact-header a {
+  color: #fff;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px #000, 0 0 8px rgba(255, 255, 255, 0.7);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.contact-header a:hover {
+  color: #fffacd;
+  text-shadow: 0 0 10px rgba(255, 250, 200, 1), 0 0 18px rgba(255, 255, 255, 0.8);
+}
+
+.contact-footer {
+  background: linear-gradient(90deg, #add8e6, #fffacd, #ffb6c1);
+  color: #fff;
+  font-family: 'Baloo 2', 'Fredoka One', cursive !important;
+  font-weight: 600;
+  text-align: center;
+  padding: 1rem 0;
+  box-shadow: 0 -4px 10px rgba(255, 182, 193, 0.4);
+  border-top: 2px solid rgba(255, 255, 255, 0.4);
+  text-shadow: 1px 1px 2px #000, 0 0 8px rgba(255, 255, 255, 0.7);
+}
