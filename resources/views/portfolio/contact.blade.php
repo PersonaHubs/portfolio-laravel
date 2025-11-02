@@ -3,7 +3,7 @@
 @section('content')
 <div class="contact-section">
   <video autoplay muted loop class="contact-video">
-    <source src="/videos/jjk2Dbg.mp4" type="video/mp4">
+    <source src="{{ asset('videos/jjk2Dbg.mp4') }}" type="video/mp4">
   </video>
 
   <div class="contact-overlay">
